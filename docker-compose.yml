@@ -24,8 +24,8 @@ services:
       context: .
       dockerfile: ./Dockerfile
     command: /app/docker/map.sh
-    ports:
-      - 8080:8080/tcp
+    #ports:
+    #  - 8080:8080/tcp
     environment:
       DATABASE_URL: "mysql://root:password@database:3306/meshtastic-map?connection_limit=100"
       MAP_OPTS: "" # add any custom index.js options here
@@ -34,8 +34,8 @@ services:
   database:
     container_name: database
     image: bitnami/mariadb
-    ports:
-      - 3306:3306/tcp
+    #ports:
+    #  - 3306:3306/tcp
     environment:
       MARIADB_DATABASE: "meshtastic-map"
       MARIADB_ROOT_PASSWORD: "password"
