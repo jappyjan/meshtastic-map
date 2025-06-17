@@ -5,7 +5,7 @@ ADD ./ /app
 WORKDIR /app
 
 # add open ssl
-RUN apk add --no-cache openssl
+RUN apk add --no-cache openssl git
 
 RUN git clone https://github.com/meshtastic/protobufs src/external/protobufs
 
