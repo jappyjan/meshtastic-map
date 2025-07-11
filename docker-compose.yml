@@ -44,6 +44,8 @@ services:
         - PMA_PORT=3306
         #- PMA_USER=root
         #- PMA_PASSWORD=password
+    labels:
+      - traefik.http.middlewares.authentik-auth@file
   
     # runs the database to store everything from mqtt
     database:
