@@ -63,7 +63,7 @@ services:
         timeout: 5s
         retries: 6
         start_interval: 5s
-  
-  volumes:
-    database_data:
+
+volumes:
+  database_data:
   
