@@ -3,6 +3,7 @@ services:
     # listens to mqtt packets and saves to database
     meshtastic-mqtt:
       container_name: meshtastic-mqtt
+      restart: unless-stopped
       depends_on:
         database:
           condition: service_healthy
@@ -17,6 +18,7 @@ services:
     # runs the web map ui
     meshtastic-map:
       container_name: meshtastic-map
+      restart: unless-stopped
       depends_on:
         database:
           condition: service_healthy
@@ -32,9 +34,9 @@ services:
   
     # admin UI for editing the database directly
     phpmyadmin:
-      image: phpmyadmin/phpmyadmin
+      image: phpmyadmin/phpmyadmin:latest
       container_name: phpmyadmin
-      restart: always
+      restart: unless-stopped
       #ports:
       #  - 8081:80
       environment:
@@ -46,6 +48,7 @@ services:
     # runs the database to store everything from mqtt
     database:
       container_name: database
+      restart: unless-stopped
       image: bitnami/mariadb
       #ports:
       #  - 3306:3306/tcp
